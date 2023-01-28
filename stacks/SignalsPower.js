@@ -63,6 +63,25 @@
 
 // In second test case, we have 5 towers whose signal range is given
 
+function  SignalCapacity(N,arr){
+    //     7
+    // 100 80 60 70 60 75 85
+        let stack=[];
+        let ans=[];
+    for(let i=0; i<N; i++){
+        while(stack.length!=0 && arr[stack[stack.length-1]]<=arr[i]){
+            stack.pop()
+        }
+        if(stack.length>0){
+            ans.push(i-stack[stack.length-1]);
+        }else{
+            ans.push(i+1);
+        }
+        stack.push(i)
+     }
+     console.log(ans.join(" "));
+    }
+
 function financial(N,arr){
     let stack=[];
     let ans=[];
