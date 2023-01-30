@@ -21,6 +21,15 @@
    A To B Possible ? *2 +1 
    CheckPassword 
 
+  DSA 101 :-
+    Non Repetitive Substrings
+    Sales by match
+    Possible Palindrome
+    Bishop Attack
+    Valid Stack Sequence
+
+  
+
 
 
 
