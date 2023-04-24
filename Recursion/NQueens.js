@@ -36,6 +36,7 @@ function checkSafePosition(board,row,col){
     }
     return true;
 }
+
 function runProgram(input){
 input=input.trim().split("\n")
 let board=[];

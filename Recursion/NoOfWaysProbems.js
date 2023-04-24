@@ -44,3 +44,40 @@
 
 // 2 2
 
+function runProgram(input) {
+    let ans = fun(+input)
+    console.log(ans);
+ }
+ function fun(N){
+     // base case
+     if(N<0){
+         return 0;
+     }
+     if(N==0){
+         return 1;
+     }
+     
+    return  fun(N-1)+fun(N-2)+fun(N-3)
+     // main case ==> fun call itself 
+ }
+ 
+ if (process.env.USER === "") {
+   runProgram(``);
+ } else {
+   process.stdin.resume();
+   process.stdin.setEncoding("ascii");
+   let read = "";
+   process.stdin.on("data", function (input) {
+     read += input;
+   });
+   process.stdin.on("end", function () {
+     read = read.replace(/\n$/, "");
+     read = read.replace(/\n$/, "");
+     runProgram(read);
+   });
+   process.on("SIGINT", function () {
+     read = read.replace(/\n$/, "");
+     runProgram(read);
+     process.exit(0);
+   });
+ }

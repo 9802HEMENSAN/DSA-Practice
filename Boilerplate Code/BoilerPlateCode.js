@@ -1,8 +1,4 @@
-type-1
-1 word- 
-
-
-
+ 
 function runProgram(input){
    // Write Code Here
   n= +input;
