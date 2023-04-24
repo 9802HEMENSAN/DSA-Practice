@@ -60,6 +60,88 @@
 // 5
 // 3
 
+function myfunction(N, M, arr) {
+    let sum = 0;
+    var max = -Infinity;
+    for (let i = 0; i < N; i++) {
+      for (let j = 0; j < M; j++) {
+        let k = i;
+        let m = j;
+        while (k < N && m < M && k >= 0 && m >= 0) {
+          sum += arr[k][m];
+          k++;
+          m++;
+        }
+        k = i;
+        m = j;
+        while (k < N && m < M && k >= 0 && m >= 0) {
+          sum += arr[k][m];
+          k--;
+          m--;
+        }
+        k = i;
+        m = j;
+        while (k < N && m < M && k >= 0 && m >= 0) {
+          sum += arr[k][m];
+          k--;
+          m++;
+        }
+        k = i;
+        m = j;
+        while (k < N && m < M && k >= 0 && m >= 0) {
+          sum += arr[k][m];
+          k++;
+          m--;
+        }
+        var totel = sum - 3 * arr[i][j];
+        if (max < totel) {
+          max = totel;
+        }
+        sum = 0;
+      }
+    }
+    console.log(max);
+  }
+  
+  function runProgram(input) {
+    // Write Code Here
+    input = input.split("\n");
+    tc = +input[0];
+    line = 1;
+    for (let i = 0; i < tc; i++) {
+      size = input[line].split(" ").map(Number);
+      N = +size[0];
+      M = +size[1];
+      var arr = [];
+      line++; //2
+      for (let j = line; j < line + N; j++) {
+        arr.push(input[j].split(" ").map(Number));
+      }
+      line += N;
+      myfunction(N, M, arr);
+    }
+  }
+  if (process.env.USERNAME === "") {
+    runProgram(``);
+  } else {
+    process.stdin.resume();
+    process.stdin.setEncoding("ascii");
+    let read = "";
+    process.stdin.on("data", function (input) {
+      read += input;
+    });
+    process.stdin.on("end", function () {
+      read = read.replace(/\n$/, "");
+      read = read.replace(/\n$/, "");
+      runProgram(read);
+    });
+    process.on("SIGINT", function () {
+      read = read.replace(/\n$/, "");
+      runProgram(read);
+      process.exit(0);
+    });
+  }
+
 function runProgram(input){
     input=input.split("\n");
     let tc=+input[0];
