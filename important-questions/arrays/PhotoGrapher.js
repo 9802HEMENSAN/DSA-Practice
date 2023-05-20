@@ -6,8 +6,6 @@
 // 2 5 2 2 2 5
 // 1 2
 // 8 6
-
- 
 function runProgram(input) {
     input=input.split("\n");
     let tc=+input[0];
