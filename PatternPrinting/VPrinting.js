@@ -70,51 +70,55 @@
 // (1,1) - 1, (2,2) - 6.
 // There are no elements to be traversed further, hence you can't reach the bottom left corner of the array. Hence the answer is -1.
 
-function pattern(r,c,arr){
-    let bag='';
-   if(r==(c*2)-1){
-      let count=0;
-      let mid=Math.floor(r/2);
-      for(let R=0,C=0;R<=mid&&C<c;R++,C++){
-         bag+=arr[R][C]+' ';
-      }
-     for(let R=mid+1,C=c-2;R<r&&C>=0;R++,C--){
-         bag+=arr[R][C]+' ' ;
-      }
-     console.log(bag);
-    }else{
-       console.log(-1);
-   }
+function pattern(r, c, arr) {
+    let bag = '';
+    if (r == (c * 2) - 1) {
+        let count = 0;
+        let mid = Math.floor(r / 2);
+        for (let R = 0, C = 0; R <= mid && C < c; R++, C++) {
+            bag += arr[R][C] + ' ';
+        }
+        for (let R = mid + 1, C = c - 2; R < r && C >= 0; R++, C--) {
+            bag += arr[R][C] + ' ';
+        }
+        console.log(bag);
+    } else {
+        console.log(-1);
+    }
 }
- function runProgram(input){
-        input=input.trim().split("\n");
-   let tc=input[0];
-   let line=1;
- for(let i=0; i<tc; i++){
-     let [r,c]=input[line].trim().split(" ").map(Number);
-     line++;
-     let mtr=[];
-     for(let i=0; i<r; i++){
-         let arr=input[line].split(" ").map(Number);
-         line++;
-         mtr.push(arr);
-   }
-   pattern(r,c,mtr)
-  }
+function runProgram(input) {
+    input = input.trim().split("\n");
+    let tc = input[0];
+    let line = 1;
+    for (let i = 0; i < tc; i++) {
+        let [r, c] = input[line].trim().split(" ").map(Number);
+        line++;
+        let mtr = [];
+        for (let i = 0; i < r; i++) {
+            let arr = input[line].split(" ").map(Number);
+            line++;
+            mtr.push(arr);
+        }
+        pattern(r, c, mtr)
+    }
 }
 if (process.env.USERNAME === "") {
-     runProgram(``);
- } else {
-     process.stdin.resume();
-     process.stdin.setEncoding("ascii");
-     let read = "";
-     process.stdin.on("data", function (input) {
-         read += input; });
-     process.stdin.on("end", function () {
-         read = read.replace(/\n$/, "");
-         read = read.replace(/\n$/, "");
-         runProgram(read);});
-     process.on("SIGINT", function () {
-         read = read.replace(/\n$/, "");
-         runProgram(read);
-         process.exit(0); }); }
+    runProgram(``);
+} else {
+    process.stdin.resume();
+    process.stdin.setEncoding("ascii");
+    let read = "";
+    process.stdin.on("data", function (input) {
+        read += input;
+    });
+    process.stdin.on("end", function () {
+        read = read.replace(/\n$/, "");
+        read = read.replace(/\n$/, "");
+        runProgram(read);
+    });
+    process.on("SIGINT", function () {
+        read = read.replace(/\n$/, "");
+        runProgram(read);
+        process.exit(0);
+    });
+}
